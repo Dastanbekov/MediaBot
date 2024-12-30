@@ -12,6 +12,7 @@ async def cmd_start(message: Message,state:FSMContext):
     await message.answer(f'Hello User!', reply_markup=main)
 
 @user.callback_query(F.data == 'menu')
-async def callback_main(callback: CallbackQuery):
-    await callback.message.answer(text='Choose the option:', reply_markup=main) 
+async def callback_main(callback: CallbackQuery,state:FSMContext):
+    await state.clear()
+    await callback.message.edit_text(text='Choose the option:', reply_markup=main) 
     

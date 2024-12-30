@@ -9,7 +9,11 @@ router = Router()
 
 @router.callback_query(F.data == 'youtube')
 async def ythandler(callback:CallbackQuery):
-    await callback.message.answer(text='What you gonna do?',reply_markup=youtube_kb)
+    await callback.message.edit_text(text='What you gonna do?',reply_markup=youtube_kb)
+
+
+
+
 
 @router.callback_query(F.data == 'yt_mp3')
 async def yt_mp3(callback:CallbackQuery, state:FSMContext):
@@ -27,7 +31,7 @@ async def yt_mp4(callback:CallbackQuery,state:FSMContext):
 async def process_url(message: Message, state: FSMContext):
     url = message.text.strip()
     if "youtube.com" in url or "youtu.be" in url:
-        await download_mp3(message,type='mp3') 
+        await download_mp3(message,type='mp3',url=url) 
         await state.clear()
     else:
         await message.answer("It is not YouTube link. Try again and send the youtube link.")
@@ -36,7 +40,7 @@ async def process_url(message: Message, state: FSMContext):
 async def process_url_webm(message: Message, state: FSMContext):
     url = message.text.strip()
     if "youtube.com" in url or "youtu.be" in url:
-        await download_mp3(message,type='mp4') 
+        await download_mp3(message,type='mp4',url=url) 
         await state.clear()
     else:
         await message.answer("It is not YouTube link. Try again and send the youtube link.")

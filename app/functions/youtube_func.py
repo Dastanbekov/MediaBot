@@ -1,12 +1,9 @@
 import os
-from aiogram import F
 from aiogram.types import Message, FSInputFile
-from aiogram.fsm.context import FSMContext
 import yt_dlp
 
-async def download_mp3(message: Message, type):
+async def download_mp3(message: Message, type,url):
     """Скачивает MP3 по URL из сообщения и отправляет пользователю."""
-    url = message.text.strip()
     base_filename = f'{message.chat.id}'
     if type == 'mp3':
         opts = {
@@ -30,6 +27,7 @@ async def download_mp3(message: Message, type):
     except Exception:
         await message.reply(text='Incorrect link,try again')
         print(f'Something goes wrong...')
+
     if type == 'mp3':
         final_audio = FSInputFile(path=f'{base_filename}.mp3')
         await message.answer_audio(audio=final_audio)
