@@ -8,7 +8,7 @@ user = Router()
 
 @user.message(CommandStart())
 async def cmd_start(message: Message,state:FSMContext):
-    state.clear()
+    await state.clear()
     await message.answer(f'Hello User!', reply_markup=main)
 
 @user.callback_query(F.data == 'menu')
