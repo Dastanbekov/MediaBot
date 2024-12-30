@@ -1,6 +1,6 @@
 from aiogram.types import Message,CallbackQuery
 from aiogram import Router,F
-from aiogram.filters import Command,CommandStart
+from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 
 from ..keyboards.user_kb import main
