@@ -17,12 +17,13 @@ async def download_mp3(message: Message, bot):
         }],
     }
     try:
-        await message.reply("⏳ Начинаю загрузку и конвертацию MP3. Подождите...")
+        await message.reply("⏳ Start download and convert to mp3...")
         with yt_dlp.YoutubeDL(opts) as ytdl:
             ytdl.download([url])
-    except Exception as e:
-        print(f'exception{e}')
-    
+    except Exception:
+        await message.reply(text='Incorrect link,try again')
+        print(f'Something goes wrong...')
+
     finall_audio = FSInputFile(path=f'{base_filename}.mp3')
     await message.answer_audio(audio=finall_audio)
     os.remove(f'{base_filename}.mp3')

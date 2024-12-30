@@ -27,8 +27,7 @@ async def yt_mp4(callback:CallbackQuery):
 async def process_url(message: Message, state: FSMContext, bot):
     url = message.text.strip()
     if "youtube.com" in url or "youtu.be" in url:
-        await message.answer(f"Начинаю загрузку видео по URL: {url}...")
         await download_mp3(message, bot) 
         await state.clear()
     else:
-        await message.answer("Это не похоже на ссылку YouTube. Попробуйте ещё раз.")
+        await message.answer("It is not YouTube link. Try again and send the youtube link.")
