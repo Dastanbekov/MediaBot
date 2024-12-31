@@ -1,6 +1,10 @@
 from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
                            InlineKeyboardMarkup, InlineKeyboardButton)
 
+go_back = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Menu',callback_data='menu')]
+])
+
 main = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Youtube', callback_data='youtube')],
     [InlineKeyboardButton(text='About Application',callback_data='about')],

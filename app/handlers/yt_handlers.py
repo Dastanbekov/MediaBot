@@ -12,10 +12,6 @@ router = Router()
 async def ythandler(callback:CallbackQuery):
     await callback.message.edit_text(text='What you gonna do?',reply_markup=youtube_kb)
 
-@router.message(F.text == '🎈Youtube')
-async def ythandler_text(message:Message):
-    await message.answer(text='What you gonna do?',reply_markup=youtube_kb)
-
 @router.callback_query(F.data == 'yt_mp3')
 async def yt_mp3(callback:CallbackQuery, state:FSMContext):
     await callback.message.answer(text='Send link to video.')
