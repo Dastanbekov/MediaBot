@@ -1,10 +1,14 @@
 from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
                            InlineKeyboardMarkup, InlineKeyboardButton)
-from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 main = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Youtube', callback_data='youtube')],
     [InlineKeyboardButton(text='About Application',callback_data='about')],
+])
+
+main_keyboard = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='🎈Youtube')],
+    [KeyboardButton(text='🧠How to use?')]
 ])
 
 youtube_kb = InlineKeyboardMarkup(inline_keyboard=[
