@@ -30,7 +30,3 @@ async def message_about(message:Message):
 async def ythandler_text(message:Message):
     await message.answer(text='What you gonna do?',reply_markup=youtube_kb)
 
-@user.message()
-async def fallback_message(message:Message):
-    await message.answer("Sorry i can't understand you. Use /start command.")\
-

@@ -3,6 +3,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 from app.handlers.user import user #import the user router
+from app.handlers.admin import admin
 from app.handlers.yt_handlers import router
 from config import TOKEN
 import asyncio
@@ -12,7 +13,7 @@ async def main():
               default=DefaultBotProperties(parse_mode=ParseMode.HTML)) #parse mode for use html tags like <b>  and e.t.c
     dp = Dispatcher()
     # dp.include_router(....) later
-    dp.include_routers(user,router)
+    dp.include_routers(admin,user,router)
     dp.startup.register(startup)
     dp.shutdown.register(shutdown)
     await dp.start_polling(bot)
