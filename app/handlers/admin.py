@@ -3,10 +3,10 @@ from aiogram.filters import Command
 from aiogram import Router,F
 
 from ..keyboards.admin_kb import main
+from config import ADMIN_ID
 
 admin = Router()
 
-ADMIN_ID = 68073708833
 @admin.message(Command('admin'))
 async def admin_cmd(message:Message):
     if ADMIN_ID == message.from_user.id:
