@@ -1,5 +1,28 @@
-.env
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
 env/
-*.pyc
-app/database/db.py
+.env
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+app/database/bot.db
+app/database/bot.db-journal

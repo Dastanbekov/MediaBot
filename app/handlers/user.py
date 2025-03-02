@@ -69,7 +69,6 @@ async def about(callback: CallbackQuery):
             "• Download YouTube videos as MP3/MP4\n"
             "• High-quality downloads\n"
             "• Fast processing\n\n"
-            "👨‍💻 Developer: @aitdas"
         ),
         reply_markup=main
     )
