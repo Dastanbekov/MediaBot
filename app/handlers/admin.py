@@ -103,18 +103,5 @@ async def process_broadcast(message: Message, state: FSMContext):
         f"📱 Total reached: {success_count + fail_count}"
     )
 
-@router.callback_query(F.data == "user_stats")
-async def show_stats(callback: CallbackQuery):
-    if callback.from_user.id != ADMIN_ID:
-        return
-    
-    stats = await db.get_user_stats()
-    await callback.message.edit_text(
-        f"📊 User Statistics\n\n"
-        f"👥 Total users: {stats['total_users']}\n"
-        f"✅ Active users: {stats['active_users']}\n"
-        f"❌ Inactive users: {stats['inactive_users']}",
-        reply_markup=admin_kb
-    )
 
 
