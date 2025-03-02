@@ -5,4 +5,7 @@ class DownloadState(StatesGroup):
     
 class DownloadStateVideoYT(StatesGroup):
     waiting_for_url = State()
+
+class BroadcastState(StatesGroup):
+    waiting_for_message = State()
     
